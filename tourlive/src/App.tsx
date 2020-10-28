@@ -1,23 +1,22 @@
 import * as React from "react";
+import styled from "styled-components";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import ListPage from "./pages/listPage";
+import DetailPage from "./pages/detailPage";
+
+const baseWrap = styled.div``;
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={ListPage}></Route>
+          <Route path="/detail/:id" component={DetailPage}></Route>
+        </Switch>
+      </Router>
+    </>
   );
 };
 
